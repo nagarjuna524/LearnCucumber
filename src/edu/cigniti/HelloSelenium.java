@@ -3,7 +3,9 @@
  */
 package edu.cigniti;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 /**
@@ -32,6 +34,10 @@ public class HelloSelenium {
 			System.setProperty("webdriver.gecko.driver", PATH + "/drivers/linux32/geckodriver");
 		}
 		WebDriver driver = new FirefoxDriver();
+		driver.manage().window().maximize();
+		driver.get("http://google.com");
+
+		WebElement searchbox = driver.findElement(By.xpath("//input[@id='lst-ib']"));
 
 	}
 
