@@ -6,7 +6,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -50,10 +49,10 @@ public class Test_Steps {
 		driver.findElement(By.xpath(".//*[@id='account']/a")).click();
 	}
 
-	@When("^User enters UserName and Password$")
-	public void user_enters_UserName_and_Password() throws Throwable {
-		driver.findElement(By.id("log")).sendKeys("go1234"); 	 
-	    driver.findElement(By.id("pwd")).sendKeys("Hello123$");
+	@When("^User enters \"(.*)\" and \"(.*)\"$")
+	public void user_enters_UserName_and_Password(String username, String password) throws Throwable {
+		driver.findElement(By.id("log")).sendKeys(username); //("go1234")
+	    driver.findElement(By.id("pwd")).sendKeys(password); //("Hello123$");
 	    driver.findElement(By.id("login")).click();
 	}
 
